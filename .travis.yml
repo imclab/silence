@@ -3,5 +3,5 @@ node_js:
 language: node_js
 script: "npm run test-ci"
 before_install:
-  - curl http://johnvansickle.com/ffmpeg/releases/ffmpeg-release-64bit-static.tar.xz | sudo tar -C /usr/local/bin/ -xf
+  - curl http://johnvansickle.com/ffmpeg/releases/ffmpeg-release-64bit-static.tar.xz | sudo tar -C /usr/local/bin/ -xvz
 after_script: "npm install coveralls@2 && cat ./coverage/lcov.info | coveralls"
