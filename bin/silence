@@ -1,0 +1,33 @@
+#!/usr/bin/env node
+'use strict'
+
+const program = require('commander')
+  .usage('[options] input output')
+  .option('-m, --max-size [size]', 'maximum size [320]')
+  .option('-r, --fps [fps]', 'frames per second [20]')
+  .option('-s, --start-time [time]', 'start time in seconds or hh:mm:ss[.xxx] format [0]')
+  .option('-d, --duration [seconds]', 'duration in seconds')
+  .parse(process.argv)
+
+const assert = require('assert')
+
+assert(program.args.length === 2, 'input and outfile files are required')
+
+const options = {
+  input: program.args[0],
+  output: program.args[1],
+}
+
+if (program.fps) options.fps = ~~program.fps
+if (program.maxsize) options.maxsize = ~~program.maxsize
+if (program.startTime) {
+  options.start_time = isNaN(program.startTime)
+    ? program.startTime
+    : ~~program.startTime * 1000
+}
+if (program.duration) options.duration = 1000 * parseInt(options.duration)
+
+require('..')(options).catch(function (err) {
+  console.error(err.stack)
+  process.exit(1)
+})
