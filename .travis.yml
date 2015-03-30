@@ -1,6 +1,7 @@
 node_js:
 - "iojs"
 language: node_js
-sudo: false
 script: "npm run test-ci"
+before_install:
+  - curl http://ffmpeg.gusari.org/static/64bit/ffmpeg.static.64bit.latest.tar.gz | sudo tar -C /usr/local/bin/ -xvz
 after_script: "npm install coveralls@2 && cat ./coverage/lcov.info | coveralls"
