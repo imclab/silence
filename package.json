@@ -31,5 +31,6 @@
   "files": [
     "lib"
   ],
-  "main": "lib"
+  "main": "lib",
+  "bin": "bin/silence"
 }
