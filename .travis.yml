@@ -1,9 +1,9 @@
 node_js:
 - "iojs"
-sudo: false
 language: node_js
 script: "npm run test-ci"
 before_install:
-  - tar --version
-  - curl http://johnvansickle.com/ffmpeg/releases/ffmpeg-release-64bit-static.tar.xz | tar -C /usr/local/bin/ -xvz
+  - sudo apt-get update
+  - sudo apt-get -y upgrade
+  - curl http://johnvansickle.com/ffmpeg/releases/ffmpeg-release-64bit-static.tar.xz | sudo tar -C /usr/local/bin/ -xvz
 after_script: "npm install coveralls@2 && cat ./coverage/lcov.info | coveralls"
