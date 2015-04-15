@@ -5,5 +5,5 @@ script: "npm run test-ci"
 before_install:
   - sudo apt-get update
   - sudo apt-get -y upgrade
-  - curl http://johnvansickle.com/ffmpeg/releases/ffmpeg-release-64bit-static.tar.xz | sudo tar -C /usr/local/bin/ -xvz
+  - curl http://johnvansickle.com/ffmpeg/releases/ffmpeg-release-64bit-static.tar.xz | sudo tar -C /usr/local/bin/ -xJ --strip-components=1
 after_script: "npm install coveralls@2 && cat ./coverage/lcov.info | coveralls"
