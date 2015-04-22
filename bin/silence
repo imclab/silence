@@ -19,7 +19,7 @@ const options = {
 }
 
 if (program.fps) options.fps = ~~program.fps
-if (program.maxsize) options.maxsize = ~~program.maxsize
+if (program.maxSize) options.maxsize = ~~program.maxSize
 if (program.startTime) {
   options.start_time = isNaN(program.startTime)
     ? program.startTime
