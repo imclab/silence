@@ -29,6 +29,7 @@
     "gif"
   ],
   "files": [
+    "bin",
     "lib"
   ],
   "main": "lib",
