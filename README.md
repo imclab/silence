@@ -27,9 +27,10 @@ Options:
 
 - `.input` - input filename
 - `.output` - output filename
-- `.format` - alternative to `.output`. Creates a specific format.
-- `.fps` - number of frames per second
-- `.start_time` - a string of the form `hh:mm:ss[.ms]` or in milliseconds
+- `.format=gif` - alternative to `.output`. Creates a specific format.
+- `.fps=20` - number of frames per second
+- `.start_time=0` - a string of the form `hh:mm:ss[.ms]` or in milliseconds
+- `.max_size=320` - maximum dimension of the file
 - `.duration` - milliseconds
 
 `options` is returned, mutated, with `.output` always defined.
