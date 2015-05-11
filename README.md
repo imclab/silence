@@ -18,6 +18,13 @@ Similar to [gify](https://www.npmjs.com/package/gify) except:
 
 It uses settings from this post: http://blog.pkh.me/p/21-high-quality-gif-with-ffmpeg.html
 
+It also supports slicing videos into (silent) videos in the encoding of your choice:
+
+- vp8 (webm)
+- vp9
+- x264 (mp4)
+- x265
+
 ## API
 
 ### silence([input], options).then( options => )
