@@ -11,6 +11,8 @@ require('mkdirp').sync(path.resolve('build'))
 
 describe('GIF', function () {
   it('should create a GIF', function () {
+    console.log(fs.statSync(fixture('small.mp4')).size)
+    
     return silence(fixture('small.mp4'), {
       fps: 15,
       output: 'build/small.gif',
@@ -26,6 +28,7 @@ describe('GIF', function () {
     }).then(function (res) {
       console.log(res.output)
       assert(fs.statSync(res.output))
+      console.log(fs.statSync(res.output).size)
     })
   })
 })
@@ -50,6 +53,7 @@ describe('x264', function () {
       console.log(res.output)
       assert(/\.mp4$/.test(res.output))
       assert(fs.statSync(res.output))
+      console.log(fs.statSync(res.output).size)
     })
   })
 })
@@ -63,6 +67,7 @@ describe('vp8', function () {
       console.log(res.output)
       assert(/\.webm$/.test(res.output))
       assert(fs.statSync(res.output))
+      console.log(fs.statSync(res.output).size)
     })
   })
 
@@ -87,6 +92,7 @@ describe('x265', function () {
       console.log(res.output)
       assert(/\.mp4$/.test(res.output))
       assert(fs.statSync(res.output))
+      console.log(fs.statSync(res.output).size)
     })
   })
 })
@@ -100,6 +106,7 @@ describe('vp9', function () {
       console.log(res.output)
       assert(/\.webm$/.test(res.output))
       assert(fs.statSync(res.output))
+      console.log(fs.statSync(res.output).size)
     })
   })
 })
