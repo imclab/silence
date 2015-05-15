@@ -1,0 +1,12 @@
+machine:
+  services:
+    - docker
+
+dependencies:
+  override:
+    - docker info
+    - docker build -t silence .
+
+test:
+  override:
+    - docker run silence npm run test-cov
